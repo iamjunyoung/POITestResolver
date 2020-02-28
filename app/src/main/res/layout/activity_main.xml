@@ -1,19 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent" >
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/query"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Query"
-        android:onClick="onClick"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="90dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/insert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insert"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/query"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Query"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/queryByPOI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="query poi cb9b9eee "
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/queryByPOI1234"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="query poi 1234"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/registerHomeByLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="registerHomeByLocation "
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/registerHomeByPOI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="registerHomeByPOI"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/registerCharger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="registerCharger"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/updateHomeByLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="updateHomeByLocation"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/updateHomeByPOI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="updateHomeByPOI"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/updateCharger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="updateCharger"
+                android:onClick="onClick"
+                tools:layout_editor_absoluteX="76dp"
+                tools:layout_editor_absoluteY="90dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+                <Button
+                    android:id="@+id/removeHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="removeHome"
+                    android:onClick="onClick"
+                    tools:layout_editor_absoluteX="76dp"
+                    tools:layout_editor_absoluteY="90dp"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/removeCharger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="removeCharger"
+                    android:onClick="onClick"
+                    tools:layout_editor_absoluteX="76dp"
+                    tools:layout_editor_absoluteY="90dp"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/result"
+            android:text="Result" />
+    </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
