@@ -282,8 +282,10 @@ public class MainActivity extends AppCompatActivity {
         if (c != null) {
             boolean homeExist;
             if (c.getCount() > 0) {
+                Toast.makeText(this, "Home exist", Toast.LENGTH_LONG).show();
                 homeExist = true;
             } else {
+                Toast.makeText(this, "Home's not exist", Toast.LENGTH_LONG).show();
                 homeExist = false;
             }
             c.close();
@@ -304,8 +306,10 @@ public class MainActivity extends AppCompatActivity {
         if (c != null) {
             boolean chargerExist;
             if (c.getCount() > 0) {
+                Toast.makeText(this, "Charger exist", Toast.LENGTH_LONG).show();
                 chargerExist = true;
             } else {
+                Toast.makeText(this, "Charger's not exist", Toast.LENGTH_LONG).show();
                 chargerExist = false;
             }
             c.close();
@@ -317,11 +321,9 @@ public class MainActivity extends AppCompatActivity {
     // in POIDataManager. aar
     // 1.
     public void registerHomeByLocation(float x, float y, int z) {
-        /*
-        if (existChargerRegistered()) {
+        if (existHomeRegistered()) {
             return;
         }
-        */
         //새로운 location 좌표를 입력받아 isHome=true로 db에 row insert
 
         ContentValues cv = new ContentValues();
@@ -353,6 +355,9 @@ public class MainActivity extends AppCompatActivity {
 
     // 2.
     public void registerHomeByPOI(String poi) { // in POI List
+        if (existHomeRegistered()) {
+            return;
+        }
         //Poi id로 query하여 나온애의 isHome = true로 update
         Cursor c = getContentResolver().query(CONTENT_URI
                 , new String[] {ID, POI_ID, FLOOR_ID, FLOOR_NAME_EN, FLOOR_NAME_KR
@@ -370,6 +375,9 @@ public class MainActivity extends AppCompatActivity {
 
     // 3/
     public void registerCharger(float x, float y, int z, int theta) {
+        if (existChargerRegistered()) {
+            return;
+        }
         //새로운 location 좌표를 입력받아 db에 row insert 및 isCharger = true로 update
         ContentValues cv = new ContentValues();
         cv.put(POI_ID, ""); // This is set after.
@@ -399,6 +407,9 @@ public class MainActivity extends AppCompatActivity {
     }
     // 4
     public void updateHomeByLocation(float x, float y, int z) {
+        if (!existHomeRegistered()) {
+            return;
+        }
         //기존 isHome = true인 애의 IS_IN_POILIST = true이면,  애의 isHome = false로 update
         //기존 isHome = true인 애의 IS_IN_POILIST = false이면,  애는 delete
         //
@@ -443,6 +454,10 @@ public class MainActivity extends AppCompatActivity {
 
     // 5
     public void updateHomeByPOI(String poi) {
+        if (!existHomeRegistered()) {
+            return;
+        }
+
         Cursor c = getContentResolver().query(CONTENT_URI
                 , new String[]{ID, POI_ID, FLOOR_ID, FLOOR_NAME_EN, FLOOR_NAME_KR
                         , FLOOR_ORDER, FLOOR_INDEX, ATTRIBUTE_EL_ID, ATTRIBUTE_EL_VENDER, ATTRIBUTE_EL_FLOOR_LIST
@@ -489,6 +504,9 @@ public class MainActivity extends AppCompatActivity {
 
     // 6
     public void updateCharger(float x, float y, int z, int theta) {
+        if (!existChargerRegistered()) {
+            return;
+        }
         //기존 isCharger = true인 애는 delete
         //
         //새로운 location 좌표를 입력받아 db에 row insert 및 isCharger = true로 update
@@ -509,6 +527,9 @@ public class MainActivity extends AppCompatActivity {
 
     // 7
     public void removeHome() {
+        if (!existHomeRegistered()) {
+            return;
+        }
         //기존 isHome = true인 애의 IS_IN_POILIST = false이면,  애는 delete
         //기존 isHome = true인 애의 IS_IN_POILIST = true이면,  애의 isHome = false로 update
         Cursor c = getContentResolver().query(CONTENT_URI
@@ -550,6 +571,9 @@ public class MainActivity extends AppCompatActivity {
 
     // 8
     public void removeCharger() {
+        if (!existChargerRegistered()) {
+            return;
+        }
         //기존 isCharger = true인 row를 delete
         getContentResolver().delete(CONTENT_URI, IS_CHARGER + "= 'true';", null);
     }
